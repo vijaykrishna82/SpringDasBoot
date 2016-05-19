@@ -36,7 +36,8 @@ public class ShipwreckControllerWebIntegrationTest {
 		JsonNode responseJson = objectMapper.readTree(response.getBody());
 		
 		MatcherAssert.assertThat(responseJson.isMissingNode(), is(false));
-		MatcherAssert.assertThat(responseJson.toString(), equalTo("[]"));
+		MatcherAssert.assertThat(responseJson.toString(), startsWith("["));
+		MatcherAssert.assertThat(responseJson.toString(), endsWith("]"));
 		
 				
 				
